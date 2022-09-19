@@ -2,6 +2,7 @@ package com.edu.ulab.app.facade;
 
 import com.edu.ulab.app.dto.BookDto;
 import com.edu.ulab.app.dto.UserDto;
+import com.edu.ulab.app.entity.Book;
 import com.edu.ulab.app.exception.NotFoundException;
 import com.edu.ulab.app.mapper.BookMapper;
 import com.edu.ulab.app.mapper.UserMapper;
@@ -60,13 +61,40 @@ public class UserDataFacade {
     }
 
     public UserBookResponse updateUserWithBooks(UserBookRequest userBookRequest) {
-        return null;
+        UserDto userDto = userMapper.userRequestToUserDto(userBookRequest.getUserRequest());
+        userService.updateUser(userDto);
+        List<Long> bookIdList = userBookRequest.getBookRequests()
+                .stream()
+                .filter(Objects::nonNull)
+                .map(bookMapper::bookRequestToBookDto)
+                .peek(bookDto -> bookDto.setUserId(userDto.getId()))
+                .peek(mappedBookDto -> log.info("mapped book: {}", mappedBookDto))
+                .map(bookService::updateBook)
+                .peek(createdBook -> log.info("Updated book: {}", createdBook))
+                .map(BookDto::getId)
+                .toList();
+
+        return UserBookResponse.builder()
+                .userId(userDto.getId())
+                .booksIdList(bookIdList)
+                .build();
     }
 
     public UserBookResponse getUserWithBooks(Long userId) {
-        return null;
+        List<Book> books = bookService.getBookByUserId(userId);
+        //UserDto userDto = userService.getUserById(userId);
+
+        List<Long> bookId = books.stream().map(Book::getId).toList();
+
+        return UserBookResponse.builder()
+                .userId(userId)
+                .booksIdList(bookId)
+                .build();
     }
 
     public void deleteUserWithBooks(Long userId) {
+        bookService.deleteBookByUserId(userId);
+        userService.deleteUserById(userId);
     }
+
 }
