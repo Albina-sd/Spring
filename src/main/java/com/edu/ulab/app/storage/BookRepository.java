@@ -5,6 +5,9 @@ import com.edu.ulab.app.entity.Book;
 import java.util.List;
 
 public interface BookRepository {
+
+    List<Book> getAllBooks();
+
     public Book findById(long id);
 
     public Book save(Book b);

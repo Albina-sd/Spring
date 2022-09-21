@@ -3,22 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="975a0191-b1ec-4dd1-b2d3-b442f7d41cb7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/dto/BookDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/dto/BookDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/dto/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/exception/AlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/exception/AlreadyExistsException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/facade/UserDataFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/facade/UserDataFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/mapper/BookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/mapper/BookMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/BookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/BookServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/BookRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/impl/BookRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/impl/BookRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/impl/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/impl/UserRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/web/handler/ControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/web/handler/ControllerExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/web/UserController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,9 +39,14 @@
   <component name="ProjectId" id="2F08aIlqesRUbIUPVhNNS3ldHfR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../springbootservice" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
@@ -92,8 +91,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1663617702054</updated>
-      <workItem from="1663617706114" duration="1901000" />
+      <workItem from="1663617706114" duration="2162000" />
+      <workItem from="1663746062139" duration="15359000" />
     </task>
+    <task id="LOCAL-00001" summary="One more commit">
+      <created>1663619686221</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1663619686221</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,10 +112,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="One more commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="One more commit" />
   </component>
 </project>

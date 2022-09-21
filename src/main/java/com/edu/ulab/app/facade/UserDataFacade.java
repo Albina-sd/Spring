@@ -86,6 +86,7 @@ public class UserDataFacade {
 
         List<Long> bookId = books.stream().map(Book::getId).toList();
 
+        log.info("Get user {} with his books", userService.getUserById(userId).getFullName());
         return UserBookResponse.builder()
                 .userId(userId)
                 .booksIdList(bookId)
@@ -93,6 +94,7 @@ public class UserDataFacade {
     }
 
     public void deleteUserWithBooks(Long userId) {
+        log.info("Delete user {} and his books", userService.getUserById(userId).getFullName());
         bookService.deleteBookByUserId(userId);
         userService.deleteUserById(userId);
     }

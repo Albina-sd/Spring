@@ -4,22 +4,26 @@ import com.edu.ulab.app.entity.Book;
 import com.edu.ulab.app.storage.BookRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
+
+/**
+ * Имплементация репозитория
+ * механизма доступа к данным без базы данных
+ * для сущности книга
+ */
 
 @Repository
 public class BookRepositoryImpl implements BookRepository {
-    private List<Book> list = new ArrayList<>();
+    private Map<Book, Long> map = new HashMap<>();
 
     public List<Book> getAllBooks() {
-        return list;
+       return new ArrayList(map.values());
     }
 
     @Override
     public Book findById(long id){
-        return list.stream()
+        return map.keySet().stream()
                 .filter(Objects::nonNull)
                 .filter(o -> o.getId() == id)
                 .findAny()
@@ -28,7 +32,7 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public Book findBookByTitleAndAuthor(String title, String author){
-        return list.stream()
+        return map.keySet().stream()
                 .filter(Objects::nonNull)
                 .filter((o) -> o.getTitle() == title)
                 .filter((o) -> o.getAuthor() == author)
@@ -39,54 +43,46 @@ public class BookRepositoryImpl implements BookRepository {
     @Override
     public Book save(Book b){
         Book book = new Book();
-
-        if (!list.isEmpty()) {
-            long lastId = list.get(list.size() - 1).getId();
-            book.setId(lastId + 1);
-        } else {
-            book.setId(1L);
-        }
-
         book.setAuthor(b.getAuthor());
         book.setPageCount(b.getPageCount());
         book.setTitle(b.getTitle());
         book.setUserId(b.getUserId());
 
-        list.add(book);
+        if (!map.isEmpty()){
+            long lastId = Collections.max(map.values());
+            b.setId(lastId + 1);
+            book.setId(lastId + 1);
+        } else {
+            b.setId(1L);
+            book.setId(1L);
+        }
+
+        //map.put(b, b.getId());
+        map.put(book, book.getId());
 
         return book;
     }
 
     @Override
     public void delete(Long id){
-        list.removeIf(x -> x.getId() == (id));
+        Book book = findById(id);
+        map.remove(book, id);
     }
 
     @Override
     public Book update(Book book){
-        int id = -1;
+        Book oldBook = findById(book.getId());
+        map.remove(oldBook);
+        map.put(book, book.getId());
 
-        for (int i = 0; i < list.size(); i++){
-            if (list.get(i).getId() == (book.getId())) {
-                id = i;
-                break;
-            }
-        }
-
-        if (id >= 0) {
-            Book book1 = new Book(book.getId(), book.getUserId(), book.getTitle(), book.getAuthor(), book.getPageCount());
-            list.set(id, book);
-
-            return book1;
-        } else {
-            return null;
-        }
+        return book;
     }
 
     @Override
     public List<Book> findBooksByUserId(Long userId){
-        return list.stream()
-                .filter((o) -> o.getUserId() == userId)
+        return map.keySet().stream()
+                .filter(Objects::nonNull)
+                .filter(o -> o.getUserId() == userId)
                 .collect(Collectors.toList());
     }
 }

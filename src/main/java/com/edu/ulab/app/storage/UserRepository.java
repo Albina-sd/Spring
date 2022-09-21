@@ -7,6 +7,8 @@ public interface UserRepository {
 
     User findByName(String fullName);
 
+    User findByNameTitleAge(String fullName, String title, int age);
+
     User save(User user);
 
     void delete(Long id);

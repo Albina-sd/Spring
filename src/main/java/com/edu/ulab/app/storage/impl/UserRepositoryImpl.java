@@ -1,19 +1,22 @@
 package com.edu.ulab.app.storage.impl;
 
-import com.edu.ulab.app.entity.Book;
 import com.edu.ulab.app.entity.User;
 import com.edu.ulab.app.storage.BookRepository;
 import com.edu.ulab.app.storage.UserRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+/**
+ * Имплементация репозитория
+ * для сущности пользователь
+ */
+
+import java.util.*;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
     final private BookRepository bookRepository;
-    List<User> list = new ArrayList<>();
+    private Map<User, Long> map = new HashMap<>();
 
     public UserRepositoryImpl(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
@@ -21,7 +24,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findById(Long id) {
-        return list.stream()
+        return map.keySet().stream()
                 .filter(Objects::nonNull)
                 .filter(o -> o.getId() == id)
                 .findAny()
@@ -30,7 +33,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findByName(String fullName) {
-        return list.stream()
+        return map.keySet().stream()
                 .filter(Objects::nonNull)
                 .filter(o -> o.getFullName() == fullName)
                 .findAny()
@@ -38,51 +41,48 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User save(User u) {
-        User user = new User();
+    public User findByNameTitleAge(String fullName, String title, int age) {
+        return map.keySet().stream()
+                .filter(Objects::nonNull)
+                .filter(o -> o.getFullName() == fullName)
+                .filter(o -> o.getAge() == age)
+                .filter(o -> o.getTitle() == title)
+                .findAny()
+                .orElse(null);
+    }
 
-        if (!list.isEmpty()) {
-            long lastId = list.get(list.size() - 1).getId();
-            user.setId(lastId + 1);
+    @Override
+    public User save(User u) {
+//        User user = new User();
+//        user.setFullName(u.getFullName());
+//        user.setAge(u.getAge());
+//        user.setTitle(u.getTitle());
+
+        if (!map.isEmpty()){
+            long lastId = Collections.max(map.values());
+            u.setId(lastId + 1);
         } else {
-            user.setId(1L);
+            u.setId(1L);
         }
 
-        user.setFullName(u.getFullName());
-        user.setAge(u.getAge());
-        user.setTitle(u.getTitle());
+        map.put(u, u.getId());
 
-        list.add(user);
-
-        return user;
+        return u;
     }
 
     @Override
     public void delete(Long id) {
-        list.removeIf(x -> x.getId() == (id));
+        User user = findById(id);
+        map.remove(user, id);
     }
 
     @Override
     public User update(User user) {
-        int id = -1;
+        User oldUser = findById(user.getId());
+        map.remove(oldUser);
+        map.put(user, user.getId());
 
-        for (int i = 0; i < list.size(); i++){
-            if (list.get(i).getId() == (user.getId())) {
-                id = i;
-                break;
-            }
-        }
-
-        if (id >= 0) {
-
-            List<Book> books = bookRepository.findBooksByUserId(user.getId());
-            User user1 = new User(user.getId(), user.getFullName(), user.getTitle(), user.getAge(), books);
-            list.set(id, user);
-
-            return user1;
-        } else {
-            return null;
-        }
+        return user;
     }
 
 }

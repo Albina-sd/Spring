@@ -31,6 +31,8 @@ public class BookServiceImpl implements BookService {
         Book book = bookMapper.createBookMapping(bookDto);
         //bookDto.setId(22L);
         bookDto = bookMapper.bookResponse(bookRepository.save(book));
+
+        log.info("Service create book: {}", book);
         return bookDto;
     }
 
@@ -38,8 +40,9 @@ public class BookServiceImpl implements BookService {
     public BookDto updateBook(BookDto bookDto) {
         long id = bookDto.getId();
         Book book = bookRepository.findById(id);
+        log.info("Service update book: {}", book);
         book = bookRepository.update(book);
-
+        //log.info("Updated book: {}", book);
         BookDto bookDto1 = bookMapper.bookResponse(book);
 
         return bookDto1;
@@ -50,17 +53,20 @@ public class BookServiceImpl implements BookService {
         Book book = bookRepository.findById(id);
 
         BookDto bookDto = bookMapper.bookResponse(book);
+        log.info("Getting book: {} by id", book);
 
         return bookDto;
     }
 
     @Override
     public List<Book> getBookByUserId(Long userId) {
+        log.info("Get book by userId: {}", userId);
         return bookRepository.findBooksByUserId(userId);
     }
 
     @Override
     public void deleteBookById(Long id) {
+        log.info("Delete book by id: {}", id);
         bookRepository.delete(id);
     }
 
@@ -68,6 +74,8 @@ public class BookServiceImpl implements BookService {
     public void deleteBookByUserId(Long userId){
 
         List<Book> books = bookRepository.findBooksByUserId(userId);
+
+        log.info("Delete all books for userId: {}", userId);
 
         for(Book book: books){
             deleteBookById(book.getId());

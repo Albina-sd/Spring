@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Пользователь с книгами
+ */
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
