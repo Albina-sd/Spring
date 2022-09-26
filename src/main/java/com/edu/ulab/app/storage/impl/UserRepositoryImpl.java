@@ -1,29 +1,31 @@
 package com.edu.ulab.app.storage.impl;
 
-import com.edu.ulab.app.entity.User;
-import com.edu.ulab.app.storage.BookRepository;
-import com.edu.ulab.app.storage.UserRepository;
+import com.edu.ulab.app.entity.Person;
+import com.edu.ulab.app.storage.BookRepositoryWithMap;
+import com.edu.ulab.app.storage.UserRepositoryWithMap;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Имплементация репозитория
  * для сущности пользователь
  */
 
-import java.util.*;
-
 @Repository
-public class UserRepositoryImpl implements UserRepository {
-    final private BookRepository bookRepository;
-    private Map<User, Long> map = new HashMap<>();
+public class UserRepositoryImpl implements UserRepositoryWithMap {
+    final private BookRepositoryWithMap bookRepository;
+    private Map<Person, Long> map = new HashMap<>();
 
-    public UserRepositoryImpl(BookRepository bookRepository) {
+    public UserRepositoryImpl(BookRepositoryWithMap bookRepository) {
         this.bookRepository = bookRepository;
     }
 
     @Override
-    public User findById(Long id) {
+    public Person findById(Long id) {
         return map.keySet().stream()
                 .filter(Objects::nonNull)
                 .filter(o -> o.getId() == id)
@@ -32,7 +34,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User findByName(String fullName) {
+    public Person findByName(String fullName) {
         return map.keySet().stream()
                 .filter(Objects::nonNull)
                 .filter(o -> o.getFullName() == fullName)
@@ -41,7 +43,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User findByNameTitleAge(String fullName, String title, int age) {
+    public Person findByNameTitleAge(String fullName, String title, int age) {
         return map.keySet().stream()
                 .filter(Objects::nonNull)
                 .filter(o -> o.getFullName() == fullName)
@@ -52,7 +54,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User save(User u) {
+    public Person save(Person u) {
 //        User user = new User();
 //        user.setFullName(u.getFullName());
 //        user.setAge(u.getAge());
@@ -72,13 +74,13 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void delete(Long id) {
-        User user = findById(id);
+        Person user = findById(id);
         map.remove(user, id);
     }
 
     @Override
-    public User update(User user) {
-        User oldUser = findById(user.getId());
+    public Person update(Person user) {
+        Person oldUser = findById(user.getId());
         map.remove(oldUser);
         map.put(user, user.getId());
 

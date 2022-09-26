@@ -1,7 +1,7 @@
 package com.edu.ulab.app.storage.impl;
 
 import com.edu.ulab.app.entity.Book;
-import com.edu.ulab.app.storage.BookRepository;
+import com.edu.ulab.app.storage.BookRepositoryWithMap;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  */
 
 @Repository
-public class BookRepositoryImpl implements BookRepository {
+public class BookRepositoryImpl implements BookRepositoryWithMap {
     private Map<Book, Long> map = new HashMap<>();
 
     public List<Book> getAllBooks() {

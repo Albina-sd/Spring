@@ -4,7 +4,7 @@ import com.edu.ulab.app.entity.Book;
 
 import java.util.List;
 
-public interface BookRepository {
+public interface BookRepositoryWithMap {
 
     List<Book> getAllBooks();
 

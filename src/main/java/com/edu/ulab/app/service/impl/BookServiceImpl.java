@@ -2,10 +2,9 @@ package com.edu.ulab.app.service.impl;
 
 import com.edu.ulab.app.dto.BookDto;
 import com.edu.ulab.app.entity.Book;
-import com.edu.ulab.app.exception.AlreadyExistsException;
 import com.edu.ulab.app.mapper.BookMapper;
+import com.edu.ulab.app.repository.BookRepository;
 import com.edu.ulab.app.service.BookService;
-import com.edu.ulab.app.storage.BookRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -14,73 +13,78 @@ import java.util.List;
 @Slf4j
 @Service
 public class BookServiceImpl implements BookService {
+
     private final BookRepository bookRepository;
+
     private final BookMapper bookMapper;
 
-    public BookServiceImpl(BookRepository bookRepository, BookMapper bookMapper) {
+    public BookServiceImpl(BookRepository bookRepository,
+                           BookMapper bookMapper) {
         this.bookRepository = bookRepository;
         this.bookMapper = bookMapper;
     }
 
     @Override
     public BookDto createBook(BookDto bookDto) {
-        if (bookRepository.findBookByTitleAndAuthor(bookDto.getTitle(), bookDto.getAuthor()) != null){
-            throw new AlreadyExistsException("Book is already exist");
-        }
-
         Book book = bookMapper.createBookMapping(bookDto);
-        //bookDto.setId(22L);
-        bookDto = bookMapper.bookResponse(bookRepository.save(book));
-
-        log.info("Service create book: {}", book);
-        return bookDto;
+        log.info("Mapped book: {} service", book);
+        Book savedBook = bookRepository.save(book);
+        log.info("Saved book: {} service", savedBook);
+        return bookMapper.bookResponse(savedBook);
     }
 
     @Override
     public BookDto updateBook(BookDto bookDto) {
-        long id = bookDto.getId();
-        Book book = bookRepository.findById(id);
-        log.info("Service update book: {}", book);
-        book = bookRepository.update(book);
-        //log.info("Updated book: {}", book);
-        BookDto bookDto1 = bookMapper.bookResponse(book);
+        // реализовать недстающие методы
+        Book book = bookMapper.createBookMapping(bookDto);
 
-        return bookDto1;
+        log.info("Mapped book: {}", book);
+
+        Book updatedBook = bookRepository.findByAuthorAndUserId(book.getAuthor(), book.getUserId()).orElse(null);
+        if (updatedBook == null) {
+            updatedBook = bookRepository.findByTitleAndUserId(book.getTitle(), book.getUserId()).orElse(null);
+        }
+
+
+        if (updatedBook != null){
+            log.info("Updating book: {}", updatedBook);
+            book.setId(updatedBook.getId());
+            log.info("Updated to: {}", book);
+        }
+
+        createBook(bookMapper.bookResponse(book));
+
+        return bookMapper.bookResponse(book);
     }
 
     @Override
     public BookDto getBookById(Long id) {
-        Book book = bookRepository.findById(id);
-
-        BookDto bookDto = bookMapper.bookResponse(book);
-        log.info("Getting book: {} by id", book);
-
-        return bookDto;
+        // реализовать недстающие методы
+        Book book = bookRepository.findById(id).orElse(null);
+        log.info("Get book: {} service", book);
+        return bookMapper.bookResponse(book);
     }
 
     @Override
     public List<Book> getBookByUserId(Long userId) {
-        log.info("Get book by userId: {}", userId);
-        return bookRepository.findBooksByUserId(userId);
+        log.info("Get book for user id: {} service", userId);
+        return bookRepository.findByUserId(userId);
     }
 
     @Override
     public void deleteBookById(Long id) {
-        log.info("Delete book by id: {}", id);
-        bookRepository.delete(id);
+        // реализовать недстающие методы
+        log.info("Delete book with id: {} service", id);
+        bookRepository.deleteById(id);
     }
 
     @Override
-    public void deleteBookByUserId(Long userId){
-
-        List<Book> books = bookRepository.findBooksByUserId(userId);
-
-        log.info("Delete all books for userId: {}", userId);
-
-        for(Book book: books){
-            deleteBookById(book.getId());
+    public void deleteBookByUserId(Long userId) {
+        List<Book> books = getBookByUserId(userId);
+        log.info("Delete books: {} service", books);
+        for (Book book: books){
+            book.setUserId(null);
+            bookRepository.deleteById(book.getId());
         }
     }
-
-
 }
