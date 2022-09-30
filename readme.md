@@ -26,5 +26,7 @@ http://localhost:8091/app/api/v1/user/create
 ]
 }
 ```
+```bash
+docker run --name postgres -d -p 15432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres:alpine
+```
 
-rqid requestId1010101
