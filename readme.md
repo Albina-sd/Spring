@@ -1,4 +1,4 @@
-1. собрать приложение mvn clean install
+1. собрать приложение `mvn clean install`
 2. проверить работу приложения возможно по этому ендпоинту: http://localhost:8091/app/actuator
 3. посмотреть сваггер возможно тут: http://localhost:8091/app/swagger-ui/index.html
 4. посмотреть консоль h2: http://localhost:8091/app/h2-console/
