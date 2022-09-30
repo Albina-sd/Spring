@@ -1,5 +1,6 @@
 package com.edu.ulab.app.web.handler;
 
+import com.edu.ulab.app.exception.AlreadyExistsException;
 import com.edu.ulab.app.exception.NotFoundException;
 import com.edu.ulab.app.web.response.BaseWebResponse;
 import lombok.NonNull;
@@ -19,6 +20,13 @@ public class ControllerExceptionHandler {
         log.error(exc.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new BaseWebResponse(createErrorMessage(exc)));
+    }
+
+    @ExceptionHandler(AlreadyExistsException.class)
+    public ResponseEntity<BaseWebResponse> handleAlreadyExistsException(@NonNull final  AlreadyExistsException ex){
+        log.error(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new BaseWebResponse(createErrorMessage(ex)));
     }
 
     private String createErrorMessage(Exception exception) {
