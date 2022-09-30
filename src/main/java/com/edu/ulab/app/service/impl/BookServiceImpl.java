@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * BookServiceImpl
+ *
+ * Реализация сервиса BookService с помощью CRUD repository
+ */
 @Slf4j
 @Service
 public class BookServiceImpl implements BookService {
@@ -33,6 +38,7 @@ public class BookServiceImpl implements BookService {
         return bookMapper.bookResponse(savedBook);
     }
 
+    // ToDo пересмотреть метод
     @Override
     public BookDto updateBook(BookDto bookDto) {
         // реализовать недстающие методы

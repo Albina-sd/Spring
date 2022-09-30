@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+//ToDo добавить связь с книгами
+
 @Entity
 @Data
 @Table(name = "PERSON")

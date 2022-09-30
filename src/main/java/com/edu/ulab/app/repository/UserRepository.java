@@ -8,6 +8,12 @@ import org.springframework.data.repository.CrudRepository;
 import javax.persistence.LockModeType;
 import java.util.Optional;
 
+/**
+ * UserRepository
+ *
+ * Интерфейс, описывающий поведение объекта, предоставляющего доступ к данным (паттерн DAO)
+ */
+
 public interface UserRepository extends CrudRepository<Person, Long> {
 
     /*

@@ -8,6 +8,11 @@ import com.edu.ulab.app.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+/**
+ * UserServiceImpl
+ *
+ * Реализация сервиса UserService с помощью CRUD repository
+ */
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {

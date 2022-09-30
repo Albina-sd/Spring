@@ -9,6 +9,12 @@ import javax.persistence.LockModeType;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * BookRepository
+ *
+ * Интерфейс, описывающий поведение объекта, предоставляющего доступ к данным (паттерн DAO)
+ */
+
 public interface BookRepository extends CrudRepository<Book, Long> {
 //    @Lock(LockModeType.PESSIMISTIC_WRITE)
 //    @Query("select b from Book b where b.id = :id")

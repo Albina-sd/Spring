@@ -9,7 +9,9 @@ import com.edu.ulab.app.mapper.UserMapper;
 import com.edu.ulab.app.service.BookService;
 import com.edu.ulab.app.service.UserService;
 import com.edu.ulab.app.service.impl.BookServiceImpl;
+import com.edu.ulab.app.service.impl.BookServiceImplTemplate;
 import com.edu.ulab.app.service.impl.UserServiceImpl;
+import com.edu.ulab.app.service.impl.UserServiceImplTemplate;
 import com.edu.ulab.app.web.request.UserBookRequest;
 import com.edu.ulab.app.web.response.UserBookResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -21,13 +23,15 @@ import java.util.Objects;
 @Slf4j
 @Component
 public class UserDataFacade {
-    private final UserServiceImpl userService;
-    private final BookServiceImpl bookService;
+    private final UserServiceImplTemplate userService;
+    private final BookServiceImplTemplate bookService;
     private final UserMapper userMapper;
     private final BookMapper bookMapper;
 
-    public UserDataFacade(UserServiceImpl userService,
-                          BookServiceImpl bookService,
+    // ToDo переделать на абстракцию UserService, BookService
+
+    public UserDataFacade(UserServiceImplTemplate userService,
+                          BookServiceImplTemplate bookService,
                           UserMapper userMapper,
                           BookMapper bookMapper) {
         this.userService = userService;
