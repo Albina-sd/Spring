@@ -5,6 +5,7 @@
 
 http://localhost:8091/app/api/v1/user/create
 
+```json
 {
 "userRequest": {
 "fullName": "test",
@@ -24,5 +25,6 @@ http://localhost:8091/app/api/v1/user/create
 }
 ]
 }
+```
 
 rqid requestId1010101
