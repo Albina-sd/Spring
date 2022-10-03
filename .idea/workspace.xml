@@ -2,19 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="975a0191-b1ec-4dd1-b2d3-b442f7d41cb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/mapper/MapperForBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/mapper/MapperForUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/BookServiceImplTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/UserServiceImplTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/config/PostgreSqlContainerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/config/SystemJpaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/config/SystemTestingJpaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/config/UnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/repository/BookRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/repository/UserRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/service/BookServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/facade/UserDataFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/facade/UserDataFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/Storage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/BookRepositoryWithMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/Storage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/UserRepositoryWithMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/impl/BookRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/impl/UserRepositoryImpl.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,6 +72,8 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="AnnotationType" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -86,8 +91,23 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../app3" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.edu.ulab.app.repository" />
+      <recent name="com.edu.ulab.app.service" />
+      <recent name="com.edu.ulab.app.service.impl" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.edu.ulab.app.service" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
