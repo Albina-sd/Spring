@@ -3,6 +3,7 @@ package com.edu.ulab.app.facade;
 import com.edu.ulab.app.dto.BookDto;
 import com.edu.ulab.app.dto.UserDto;
 import com.edu.ulab.app.entity.Book;
+import com.edu.ulab.app.entity.Person;
 import com.edu.ulab.app.exception.NotFoundException;
 import com.edu.ulab.app.mapper.BookMapper;
 import com.edu.ulab.app.mapper.UserMapper;
@@ -23,15 +24,15 @@ import java.util.Objects;
 @Slf4j
 @Component
 public class UserDataFacade {
-    private final UserServiceImplTemplate userService;
-    private final BookServiceImplTemplate bookService;
+    private final UserServiceImpl userService;
+    private final BookServiceImpl bookService;
     private final UserMapper userMapper;
     private final BookMapper bookMapper;
 
     // ToDo переделать на абстракцию UserService, BookService
 
-    public UserDataFacade(UserServiceImplTemplate userService,
-                          BookServiceImplTemplate bookService,
+    public UserDataFacade(UserServiceImpl userService,
+                          BookServiceImpl bookService,
                           UserMapper userMapper,
                           BookMapper bookMapper) {
         this.userService = userService;
@@ -87,9 +88,10 @@ public class UserDataFacade {
     }
 
     public UserBookResponse getUserWithBooks(Long userId) {
-        log.info("Get user: {}", userService.getUserById(userId));
+        Person user = userMapper.userDtoToPerson(userService.getUserById(userId));
 
-        List<Book> books = bookService.getBookByUserId(userId);
+        log.info("Get user: {}", user);
+        List<Book> books = bookService.getBookByUserId(user);
         log.info("Get books this user {}", books);
         //UserDto userDto = userService.getUserById(userId);
 
@@ -102,8 +104,9 @@ public class UserDataFacade {
     }
 
     public void deleteUserWithBooks(Long userId) {
-        log.info("Delete user {} and his books", userService.getUserById(userId).getFullName());
-        bookService.deleteBookByUserId(userId);
+        Person user = userMapper.userDtoToPerson(userService.getUserById(userId));
+        log.info("Delete user {} and his books", user.getFullName());
+        bookService.deleteBookByUserId(user);
         userService.deleteUserById(userId);
     }
 

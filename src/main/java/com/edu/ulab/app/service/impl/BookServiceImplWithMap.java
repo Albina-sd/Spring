@@ -2,6 +2,7 @@ package com.edu.ulab.app.service.impl;
 
 import com.edu.ulab.app.dto.BookDto;
 import com.edu.ulab.app.entity.Book;
+import com.edu.ulab.app.entity.Person;
 import com.edu.ulab.app.exception.AlreadyExistsException;
 import com.edu.ulab.app.mapper.BookMapper;
 import com.edu.ulab.app.service.BookService;
@@ -58,9 +59,9 @@ public class BookServiceImplWithMap implements BookService {
     }
 
     @Override
-    public List<Book> getBookByUserId(Long userId) {
-        log.info("Get book by userId: {}", userId);
-        return bookRepository.findBooksByUserId(userId);
+    public List<Book> getBookByUserId(Person user) {
+        log.info("Get book by userId: {}", user.getId());
+        return bookRepository.findBooksByUserId(user);
     }
 
     @Override
@@ -70,11 +71,11 @@ public class BookServiceImplWithMap implements BookService {
     }
 
     @Override
-    public void deleteBookByUserId(Long userId){
+    public void deleteBookByUserId(Person user){
 
-        List<Book> books = bookRepository.findBooksByUserId(userId);
+        List<Book> books = bookRepository.findBooksByUserId(user);
 
-        log.info("Delete all books for userId: {}", userId);
+        log.info("Delete all books for userId: {}", user.getId());
 
         for(Book book: books){
             deleteBookById(book.getId());

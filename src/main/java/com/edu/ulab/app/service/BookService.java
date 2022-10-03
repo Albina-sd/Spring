@@ -3,6 +3,7 @@ package com.edu.ulab.app.service;
 
 import com.edu.ulab.app.dto.BookDto;
 import com.edu.ulab.app.entity.Book;
+import com.edu.ulab.app.entity.Person;
 
 import java.util.List;
 
@@ -13,9 +14,9 @@ public interface BookService {
 
     BookDto getBookById(Long id);
 
-    List<Book> getBookByUserId(Long userId);
+    List<Book> getBookByUserId(Person user);
 
     void deleteBookById(Long id);
 
-    void deleteBookByUserId(Long userId);
+    void deleteBookByUserId(Person person);
 }

@@ -1,6 +1,7 @@
 package com.edu.ulab.app.storage.impl;
 
 import com.edu.ulab.app.entity.Book;
+import com.edu.ulab.app.entity.Person;
 import com.edu.ulab.app.storage.BookRepositoryWithMap;
 import org.springframework.stereotype.Repository;
 
@@ -46,7 +47,7 @@ public class BookRepositoryImpl implements BookRepositoryWithMap {
         book.setAuthor(b.getAuthor());
         book.setPageCount(b.getPageCount());
         book.setTitle(b.getTitle());
-        book.setUserId(b.getUserId());
+        //book.setUserId(b.getUserId());
 
         if (!map.isEmpty()){
             long lastId = Collections.max(map.values());
@@ -79,10 +80,10 @@ public class BookRepositoryImpl implements BookRepositoryWithMap {
     }
 
     @Override
-    public List<Book> findBooksByUserId(Long userId){
+    public List<Book> findBooksByUserId(Person user){
         return map.keySet().stream()
                 .filter(Objects::nonNull)
-                .filter(o -> o.getUserId() == userId)
+                //.filter(o -> o.getUserId() == user.getId())
                 .collect(Collectors.toList());
     }
 }

@@ -2,6 +2,7 @@ package com.edu.ulab.app.service.impl;
 
 import com.edu.ulab.app.dto.BookDto;
 import com.edu.ulab.app.entity.Book;
+import com.edu.ulab.app.entity.Person;
 import com.edu.ulab.app.mapper.BookMapper;
 import com.edu.ulab.app.repository.BookRepository;
 import com.edu.ulab.app.service.BookService;
@@ -46,9 +47,9 @@ public class BookServiceImpl implements BookService {
 
         log.info("Mapped book: {}", book);
 
-        Book updatedBook = bookRepository.findByAuthorAndUserId(book.getAuthor(), book.getUserId()).orElse(null);
+        Book updatedBook = bookRepository.findByAuthorAndPerson(book.getAuthor(), book.getPerson()).orElse(null);
         if (updatedBook == null) {
-            updatedBook = bookRepository.findByTitleAndUserId(book.getTitle(), book.getUserId()).orElse(null);
+            updatedBook = bookRepository.findByTitleAndPerson(book.getTitle(), book.getPerson()).orElse(null);
         }
 
 
@@ -72,9 +73,9 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> getBookByUserId(Long userId) {
-        log.info("Get book for user id: {} service", userId);
-        return bookRepository.findByUserId(userId);
+    public List<Book> getBookByUserId(Person user) {
+        log.info("Get book for user: {} service", user);
+        return bookRepository.findAllByPerson(user);
     }
 
     @Override
@@ -85,11 +86,12 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public void deleteBookByUserId(Long userId) {
-        List<Book> books = getBookByUserId(userId);
+    public void deleteBookByUserId(Person user) {
+        List<Book> books = getBookByUserId(user);
+
         log.info("Delete books: {} service", books);
+
         for (Book book: books){
-            book.setUserId(null);
             bookRepository.deleteById(book.getId());
         }
     }

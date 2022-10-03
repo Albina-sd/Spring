@@ -1,6 +1,7 @@
 package com.edu.ulab.app.repository;
 
 import com.edu.ulab.app.entity.Book;
+import com.edu.ulab.app.entity.Person;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.repository.CrudRepository;
@@ -19,7 +20,7 @@ public interface BookRepository extends CrudRepository<Book, Long> {
 //    @Lock(LockModeType.PESSIMISTIC_WRITE)
 //    @Query("select b from Book b where b.id = :id")
 //    Optional<Book> findByIdForUpdate(long id);
-    List<Book> findByUserId(Long userId);
-    Optional<Book> findByAuthorAndUserId(String author, Long userId);
-    Optional<Book> findByTitleAndUserId(String title, Long userId);
+    List<Book> findAllByPerson(Person person);
+    Optional<Book> findByAuthorAndPerson(String author, Person person);
+    Optional<Book> findByTitleAndPerson(String title, Person person);
 }
