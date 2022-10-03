@@ -20,7 +20,7 @@ public class MapperForBook implements RowMapper<Book> {
         Book book = new Book();
 
         book.setId(rs.getLong("id"));
-        book.setUserId(rs.getLong("user_id"));
+        //book.setUserId(rs.getLong("user_id"));
         book.setTitle(rs.getString("title"));
         book.setAuthor(rs.getString("author"));
         book.setPageCount(rs.getLong("page_count"));

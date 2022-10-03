@@ -1,13 +1,17 @@
 package com.edu.ulab.app.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
-//ToDo добавить связь с книгами
+
 
 @Entity
+@Getter
+@Setter
 @Data
 @Table(name = "PERSON")
 public class Person {
@@ -16,7 +20,7 @@ public class Person {
     @SequenceGenerator(name = "sequence", sequenceName = "sequence", allocationSize = 100)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(unique=true)
     private String fullName;
 
     @Column(nullable = false)
@@ -30,5 +34,7 @@ public class Person {
             CascadeType.PERSIST,
             CascadeType.DETACH,
             CascadeType.REFRESH})
-    private Set<Book> bookSet;
+    private List<Book> bookSet;
+
+
 }

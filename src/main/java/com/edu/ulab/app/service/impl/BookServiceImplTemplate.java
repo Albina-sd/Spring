@@ -2,6 +2,7 @@ package com.edu.ulab.app.service.impl;
 
 import com.edu.ulab.app.dto.BookDto;
 import com.edu.ulab.app.entity.Book;
+import com.edu.ulab.app.entity.Person;
 import com.edu.ulab.app.mapper.BookMapper;
 import com.edu.ulab.app.mapper.MapperForBook;
 import com.edu.ulab.app.service.BookService;
@@ -136,15 +137,15 @@ public class BookServiceImplTemplate implements BookService {
                 new MapperForBook());
 
         log.info("Get book: {}", book);
-        return bookMapper.bookResponse(book);
+        return bookMapper.bookToBookDto(book);
     }
 
     @Override
-    public List<Book> getBookByUserId(Long userId) {
+    public List<Book> getBookByUser(Person user) {
         final String SELECT_SQL = "SELECT * FROM BOOK WHERE USER_ID = ?";
 
         List<Book> books = jdbcTemplate.query(SELECT_SQL,
-                new Object[]{userId},
+                new Object[]{user.getId()},
                 new MapperForBook());
 
         log.info("Get books by User Id: {}", books);
@@ -161,10 +162,10 @@ public class BookServiceImplTemplate implements BookService {
     }
 
     @Override
-    public void deleteBookByUserId(Long userId) {
-        List<Book> deletedBooks = getBookByUserId(userId);
+    public void deleteBookByUser(Person user) {
+        List<Book> deletedBooks = getBookByUser(user);
 
-        log.info("Deleting books for userId: {}", userId);
+        log.info("Deleting books for user: {}", user);
         for (Book book: deletedBooks){
             deleteBookById(book.getId());
         }

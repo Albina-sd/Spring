@@ -1,8 +1,6 @@
 package com.edu.ulab.app.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,6 +11,8 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Data
 @Table(name = "BOOK")
 public class Book {
@@ -31,7 +31,7 @@ public class Book {
     private long pageCount;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "person_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private Person person;
 }
 
