@@ -1,26 +1,22 @@
 package com.edu.ulab.app.service;
 
-import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.edu.ulab.app.dto.BookDto;
 import com.edu.ulab.app.entity.Book;
 import com.edu.ulab.app.entity.Person;
 import com.edu.ulab.app.mapper.BookMapper;
 import com.edu.ulab.app.repository.BookRepository;
 import com.edu.ulab.app.service.impl.BookServiceImpl;
-import com.edu.ulab.app.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.willDoNothing;
@@ -141,14 +137,40 @@ public class BookServiceImplTest {
     @Test
     @DisplayName("Получение книги по id. Должно пройти успешно.")
     void getBook_Test() {
+        // given
+        Person person  = new Person();
+        person.setId(1L);
 
+        Book result = new Book();
+        result.setId(1L);
+        result.setAuthor("test 2 author");
+        result.setTitle("test title");
+        result.setPageCount(1000);
+        result.setPerson(person);
+
+        given(bookRepository.findById(1L)).willReturn(Optional.of(result));
+
+        // when
+        BookDto foundedBook = bookService.getBookById(result.getId());
+
+        // then
+        assertThat(foundedBook).isNotNull();
     }
 
     // delete
     @Test
     @DisplayName("Удаление книги. Должно пройти успешно.")
     void deleteBook_Test() {
+        // given
+        long id = 1L;
 
+        willDoNothing().given(bookRepository).deleteById(id);
+
+        // when
+        bookService.deleteBookById(id);
+
+        // then
+        verify(bookRepository, times(1)).deleteById(id);
     }
 
     // * failed

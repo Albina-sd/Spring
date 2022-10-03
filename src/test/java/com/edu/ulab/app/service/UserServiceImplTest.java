@@ -13,6 +13,8 @@ import org.mockito.Mock;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.willDoNothing;
@@ -115,7 +117,7 @@ public class UserServiceImplTest {
         //when
 
         when(userMapper.userDtoToPerson(userDto)).thenReturn(newPerson);
-        when(userRepository.findByFullName("test name")).thenReturn(java.util.Optional.of(savedPerson));
+        when(userRepository.findByFullName("test name")).thenReturn(Optional.of(savedPerson));
         when(userRepository.save(person)).thenReturn(newPerson);
         when(userMapper.personToUserDto(savedPerson)).thenReturn(result);
 
