@@ -3,11 +3,9 @@ package com.edu.ulab.app.facade;
 import com.edu.ulab.app.dto.BookDto;
 import com.edu.ulab.app.dto.UserDto;
 import com.edu.ulab.app.entity.Book;
-import com.edu.ulab.app.exception.NotFoundException;
+import com.edu.ulab.app.entity.Person;
 import com.edu.ulab.app.mapper.BookMapper;
 import com.edu.ulab.app.mapper.UserMapper;
-import com.edu.ulab.app.service.BookService;
-import com.edu.ulab.app.service.UserService;
 import com.edu.ulab.app.service.impl.BookServiceImpl;
 import com.edu.ulab.app.service.impl.BookServiceImplTemplate;
 import com.edu.ulab.app.service.impl.UserServiceImpl;
@@ -68,12 +66,12 @@ public class UserDataFacade {
 
     public UserBookResponse updateUserWithBooks(UserBookRequest userBookRequest) {
         UserDto userDto = userMapper.userRequestToUserDto(userBookRequest.getUserRequest());
-        userService.updateUser(userDto);
+        UserDto updatedUser = userService.updateUser(userDto);
         List<Long> bookIdList = userBookRequest.getBookRequests()
                 .stream()
                 .filter(Objects::nonNull)
                 .map(bookMapper::bookRequestToBookDto)
-                .peek(bookDto -> bookDto.setUserId(userDto.getId()))
+                .peek(bookDto -> bookDto.setUserId(updatedUser.getId()))
                 .peek(mappedBookDto -> log.info("mapped book: {}", mappedBookDto))
                 .map(bookService::updateBook)
                 .peek(createdBook -> log.info("Updated book: {}", createdBook))
@@ -87,9 +85,10 @@ public class UserDataFacade {
     }
 
     public UserBookResponse getUserWithBooks(Long userId) {
-        log.info("Get user: {}", userService.getUserById(userId));
+        Person user = userMapper.userDtoToPerson(userService.getUserById(userId));
+        log.info("Get user: {}", user);
 
-        List<Book> books = bookService.getBookByUserId(userId);
+        List<Book> books = bookService.getBookByUser(user);
         log.info("Get books this user {}", books);
         //UserDto userDto = userService.getUserById(userId);
 
@@ -102,9 +101,11 @@ public class UserDataFacade {
     }
 
     public void deleteUserWithBooks(Long userId) {
-        log.info("Delete user {} and his books", userService.getUserById(userId).getFullName());
-        bookService.deleteBookByUserId(userId);
+        Person user = userMapper.userDtoToPerson(userService.getUserById(userId));
+
+        bookService.deleteBookByUser(user);
         userService.deleteUserById(userId);
+        log.info("Deleting user {} and his books", user);
     }
 
 }

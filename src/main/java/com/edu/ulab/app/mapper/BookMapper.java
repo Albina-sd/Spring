@@ -12,7 +12,7 @@ public interface BookMapper {
 
     BookRequest bookDtoToBookRequest(BookDto bookDto);
 
-    Book createBookMapping(BookDto bookDto);
+    Book bookDtoToBook(BookDto bookDto);
 
-    BookDto bookResponse(Book book);
+    BookDto bookToBookDto(Book book);
 }

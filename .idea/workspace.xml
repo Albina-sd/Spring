@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="975a0191-b1ec-4dd1-b2d3-b442f7d41cb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/mapper/MapperForBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/mapper/MapperForUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/BookServiceImplTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/UserServiceImplTemplate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/entity/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/facade/UserDataFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/facade/UserDataFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/ulab/app/storage/Storage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/repository/BookRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/repository/BookRepositoryTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,25 +30,46 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="userbook" type="feb32156:DbDataSourceImpl" />
+        <item name="mpl_ulab_db" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="userbook" type="feb32156:DbDataSourceImpl" />
-        <item name="USERBOOK: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="mpl_ulab_db" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="userbook" type="feb32156:DbDataSourceImpl" />
-        <item name="USERBOOK: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="mpl_ulab_db" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mpl_ulab_db: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mpl_ulab_db" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mpl_ulab_db: database" type="162271b6:PgImplModel$Database" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="userbook" type="feb32156:DbDataSourceImpl" />
-        <item name="USERBOOK: database" type="2aa06773:H2ImplModel$Database" />
+        <item name="mpl_ulab_db" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mpl_ulab_db: database" type="162271b6:PgImplModel$Database" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="PUBLIC: schema" type="7f85d983:H2ImplModel$Schema" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mpl_ulab_db" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mpl_ulab_db: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="userbook" type="feb32156:DbDataSourceImpl" />
       </path>
     </expand>
     <select />
@@ -69,6 +79,8 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="AnnotationType" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -78,7 +90,7 @@
   <component name="ProjectId" id="2F08aIlqesRUbIUPVhNNS3ldHfR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="h2" />
+    <property name="DatabaseDriversLRU" value="h2&#10;postgresql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -86,8 +98,23 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../app3" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gridnine" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.edu.ulab.app.service.impl" />
+      <recent name="com.edu.ulab.app.service" />
+      <recent name="com.edu.ulab.app.repository" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.edu.ulab.app.service" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -101,7 +128,67 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.BookRepositoryTest">
+    <configuration name="BookRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.edu.ulab.app.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.edu.ulab.app.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.edu.ulab.app.repository.BookRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.edu.ulab.app.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.edu.ulab.app.service" />
+      <option name="MAIN_CLASS_NAME" value="com.edu.ulab.app.service.BookServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.edu.ulab.app.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.edu.ulab.app.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.edu.ulab.app.repository.UserRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.edu.ulab.app.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.edu.ulab.app.service" />
+      <option name="MAIN_CLASS_NAME" value="com.edu.ulab.app.service.UserServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
@@ -117,6 +204,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BookRepositoryTest" />
+        <item itemvalue="JUnit.BookServiceImplTest" />
+        <item itemvalue="JUnit.UserServiceImplTest" />
+        <item itemvalue="JUnit.UserRepositoryTest" />
         <item itemvalue="Spring Boot.AppApplication" />
       </list>
     </recent_temporary>
@@ -150,6 +241,7 @@
       <workItem from="1664445529942" duration="11800000" />
       <workItem from="1664459171988" duration="4065000" />
       <workItem from="1664532018959" duration="9124000" />
+      <workItem from="1665220393791" duration="240000" />
     </task>
     <task id="LOCAL-00001" summary="One more commit">
       <created>1663619686221</created>
@@ -165,7 +257,28 @@
       <option name="project" value="LOCAL" />
       <updated>1664224096226</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Deleting storage">
+      <created>1664799151843</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664799151843</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Adding tests">
+      <created>1664829990298</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1664829990298</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Adding tests for service">
+      <created>1664834050227</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664834050227</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +300,40 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="One more commit" />
     <MESSAGE value="Second homework" />
-    <option name="LAST_COMMIT_MESSAGE" value="Second homework" />
+    <MESSAGE value="Deleting storage" />
+    <MESSAGE value="Adding tests" />
+    <MESSAGE value="Adding tests for service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding tests for service" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/BookServiceImpl.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/edu/ulab/app/facade/UserDataFacade.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/BookServiceImpl.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/BookServiceImpl.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/edu/ulab/app/service/impl/UserServiceImpl.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

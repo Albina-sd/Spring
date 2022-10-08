@@ -26,5 +26,6 @@ public interface UserRepository extends CrudRepository<Person, Long> {
 //    @Query("select p from Person p where p.id = :id")
 //    Optional<Person> findByIdForUpdate(long id);
 
+    Optional<Person> findById(Long id);
     Optional<Person> findByFullName(String fullName);
 }
