@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="975a0191-b1ec-4dd1-b2d3-b442f7d41cb7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/repository/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/repository/UserRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/service/BookServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/service/BookServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/service/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/service/UserServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/repository/BookRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/edu/ulab/app/repository/BookRepositoryTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +100,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../app3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gridnine" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -130,7 +128,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BookServiceImplTest">
+  <component name="RunManager" selected="JUnit.BookRepositoryTest">
     <configuration name="BookRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
@@ -206,10 +204,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BookRepositoryTest" />
         <item itemvalue="JUnit.BookServiceImplTest" />
         <item itemvalue="JUnit.UserServiceImplTest" />
         <item itemvalue="JUnit.UserRepositoryTest" />
-        <item itemvalue="JUnit.BookRepositoryTest" />
         <item itemvalue="Spring Boot.AppApplication" />
       </list>
     </recent_temporary>
@@ -243,6 +241,7 @@
       <workItem from="1664445529942" duration="11800000" />
       <workItem from="1664459171988" duration="4065000" />
       <workItem from="1664532018959" duration="9124000" />
+      <workItem from="1665220393791" duration="240000" />
     </task>
     <task id="LOCAL-00001" summary="One more commit">
       <created>1663619686221</created>
@@ -272,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664829990298</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adding tests for service">
+      <created>1664834050227</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664834050227</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +302,8 @@
     <MESSAGE value="Second homework" />
     <MESSAGE value="Deleting storage" />
     <MESSAGE value="Adding tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding tests" />
+    <MESSAGE value="Adding tests for service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding tests for service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -69,6 +69,41 @@ public class BookRepositoryTest {
 
     // update
 
+    @DisplayName("Обновить книгу и автора")
+    @Test
+    @Sql({"classpath:sql/1_clear_schema.sql",
+            "classpath:sql/2_insert_person_data.sql",
+            "classpath:sql/3_insert_book_data.sql"
+    })
+    void testUpdate_AssertDmlCount(){
+        //given
+        Person person = new Person();
+        person.setId(1L);
+        person.setAge(111);
+        person.setTitle("reader 1");
+        person.setFullName("Test Test");
+
+        Person updatedPerson = userRepository.save(person);
+
+        Book book = new Book();
+        book.setId(1L);
+        book.setAuthor("Test Author");
+        book.setTitle("test 1");
+        book.setPageCount(1000);
+        book.setPerson(updatedPerson);
+
+        //When
+        Book result = bookRepository.save(book);
+
+        //then
+        assertThat(result.getPageCount()).isEqualTo(1000);
+        assertThat(result.getTitle()).isEqualTo("test 1");
+        assertSelectCount(2);
+        assertInsertCount(0);
+        assertUpdateCount(0);
+        assertDeleteCount(0);
+    }
+
     // get
 
     // delete
